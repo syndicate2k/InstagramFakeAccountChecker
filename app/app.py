@@ -1,10 +1,13 @@
-from flask import Flask, request, jsonify, render_template
 import pandas as pd
+import warnings
+from flask import Flask, request, jsonify, render_template
 from autogluon.tabular import TabularPredictor
+
+warnings.filterwarnings("ignore", category=UserWarning, module="fastai.learner")
 
 app = Flask(__name__)
 
-models_directory = 'AutogluonModels/ag-20250424_211524/'
+models_directory = 'InstagramFakeAccountChecker/AutogluonModels/'
 predictor = TabularPredictor.load(models_directory)
 
 # for matching one-hot labels with original class labels
