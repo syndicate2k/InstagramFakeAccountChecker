@@ -24,6 +24,7 @@ What can you find inside:
 
 # 2. Learnings and results
 [[back to the top]](#table-of-contents)
+
 ### 2.1. Dataset
 This dataset was taken from Kaggle ([Source](https://www.kaggle.com/datasets/manumathewjiss/instagram-multi-class-fake-account-dataset-imfad/data)). 
 **Thanks to [Manu Mathew Giss](https://www.kaggle.com/manumathewjiss) for creating and publishing the dataset.**
@@ -38,6 +39,7 @@ You can see the data preprocessing and EDA in the **models_building.ipynb**.
 <br><br>
 ### 2.2. Training and evaluation results
 [[back to the top]](#table-of-contents)
+
 - After training models we achieved following leaderboad:
 
 | Model                  | score_test | score_val | eval_metric | pred_time_test | pred_time_val | fit_time | pred_time_test_marginal | pred_time_val_marginal | fit_time_marginal | stack_level | can_infer |
@@ -67,6 +69,7 @@ You can see the data preprocessing and EDA in the **models_building.ipynb**.
 <br><br>
 ### 2.3. Using the model 
 [[back to the top]](#table-of-contents)
+
 Final model will be used in form of web service on Flask via load file **predictor.pkl**
 
 - The application accepts user input, processes it, makes a prediction, and returns the result. 
@@ -82,6 +85,7 @@ Final model will be used in form of web service on Flask via load file **predict
 
 # 3. Run sample
 [[back to the top]](#table-of-contents)
+
 ### 3.1. Setup
   - **Download content of this repository**
 
@@ -107,7 +111,7 @@ Final model will be used in form of web service on Flask via load file **predict
   * Open the app in your browser.
   * Enter your Instagram account details: number of subscribers, followings, posts, as well as the presence of a biography, profile photo, external link and thread.
   * Click the "Predict" button to get a prediction.
-  * Enjoy prediction.
+  * Enjoy your predictions.
 
 
 <br><br>
