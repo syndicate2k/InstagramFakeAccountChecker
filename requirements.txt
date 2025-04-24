@@ -1,0 +1,9 @@
+autogluon==1.2
+autogluon.common==1.2
+autogluon.core==1.2
+autogluon.features==1.2
+autogluon.multimodal==1.2
+autogluon.tabular==1.2
+autogluon.timeseries==1.2
+Flask==3.1.0
+pandas==2.2.3
