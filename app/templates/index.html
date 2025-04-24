@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Fake Account Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #aec5db;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 60px;
+            border-radius: 45px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #343a40;
+        }
+        .logo {
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            color: #495057;
+        }
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #cca4a4;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #032346;
+            color: #ffffff;
+            border: none;
+            border-radius: 45px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/images/logo.png" alt="Logo" class="logo">
+        <h1>Instagram Fake Account Checker</h1>
+        <form id="prediction-form" action="/predict" method="post">
+            <label for="followers">Followers:</label>
+            <input type="number" id="followers" name="followers" required>
+
+            <label for="following">Following:</label>
+            <input type="number" id="following" name="following" required>
+
+            <label for="posts">Posts:</label>
+            <input type="number" id="posts" name="posts" required>
+
+            <label for="bio">Bio:</label>
+            <select id="bio" name="bio" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="profile_picture">Profile Picture:</label>
+            <select id="profile_picture" name="profile_picture" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="external_link">External Link:</label>
+            <select id="external_link" name="external_link" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="threads">Threads:</label>
+            <select id="threads" name="threads" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = `Predicted Class: ${data.predicted_class}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
